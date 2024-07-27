@@ -1,0 +1,35 @@
+class Solution {
+    public long solution(long n) {
+        //자릿수 10으로 나눠서 나머지인 일의자리수 배열에 넣기
+        int len = Long.toString(n).length();
+        int [] answer = new int[len];
+        for(int i = 0; i < len; i++) {
+            if(n > 0) {
+                answer[i] = (int) (n % 10);
+                n = n / 10;
+                 }
+        }
+        
+        //배열 내림차순 정렬
+        for (int i = 0;i < len; i++) {
+            for (int j= i+1; j <len; j++){
+                if (answer[i] < answer[j]) {
+                    int a = answer[i];
+                    answer[i] = answer[j];
+                    answer[j] = a;
+                }
+            }
+        }
+        
+        //내림차순된 배열 밸류를 10씩 곱해서 합친 숫자로 리턴
+        long result = 0;
+        for(int i = 0; i < len; i++) {
+            if(i == len-1){
+            result += answer[len-1];
+            } else {
+            result = (result + answer[i]) * 10;
+            }     
+        } 
+        return result;
+    }
+}
