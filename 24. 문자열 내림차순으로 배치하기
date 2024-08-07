@@ -1,0 +1,11 @@
+import java.util.Arrays;
+
+class Solution {
+    public String solution(String s) {
+        char [] aa = s.toCharArray();
+        Arrays.sort(aa);
+        StringBuilder answer = new StringBuilder(String.valueOf(aa));
+        answer.reverse();
+        return answer.toString();
+    }
+}
