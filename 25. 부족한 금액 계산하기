@@ -1,0 +1,18 @@
+class Solution {
+    public long solution(int price, int money, int count) {
+        long result = 0;
+        long num = 0;
+        //놀이기구 총 이용금액
+        for(int i = 1; i <= count; i++) {
+            num += price * i;
+        }
+        //가진 돈에서 이용금액 뺀 금액
+        result = (long) money - num;
+        if (result >= 0) {
+            return 0;
+        } else {
+            return Math.abs(result);
+        }
+
+    }
+}
