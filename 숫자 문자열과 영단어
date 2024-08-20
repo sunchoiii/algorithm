@@ -1,0 +1,16 @@
+class Solution {
+    public int solution(String s) {
+        int answer = 0;
+        String [] str = {"zero", "one", "two","three","four","five","six","seven","eight", "nine"};
+        
+        // 숫자는 10까지밖에 없다
+        for(int i= 0; i< 10; i++) {
+            // s에 str 배열값이 있다면 인덱스 값을 String 타입으로 넣어줘
+            s = s.replace(str[i], Integer.toString(i));
+        }
+        // String타입의 숫자를 int타입으로 변환
+        answer = Integer.parseInt(s);
+        
+        return answer;
+    }
+}
