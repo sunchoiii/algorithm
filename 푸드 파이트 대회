@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Solution {
+    public String solution(int[] food) {
+        String answer = "";
+        
+        List <Integer> list = new ArrayList<>();
+        
+        for(int i=0; i<food.length; i++) {
+            if (food[i] % 2 == 1) {
+                food[i] = (food[i] - 1) / 2;
+            } else {
+                food[i] /= 2;
+            }
+    
+            for(int j = 0; j < food[i]; j++) {
+                list.add(i);
+                answer += i;
+            }
+        } 
+        answer+= "0";
+        
+        for(int i = list.size() -1 ; i >= 0; i--) {
+            answer += list.get(i);
+        }
+        
+        return answer;
+    }
+}
