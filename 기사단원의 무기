@@ -1,0 +1,32 @@
+class Solution {
+    public int solution(int number, int limit, int power) {
+        int answer = 0;
+        //각 숫자의 약수 합 배열
+        int [] aaa = new int[number];
+        
+        // number까지의 숫자 약수의 개수 구하기
+        for(int i = 1; i <= number; i++) {
+            int cnt = 0;
+            for (int j = 1; j * j <= i; j++) {  // j는 i의 제곱근까지 확인
+                 if (i % j == 0) {
+                    cnt++; // j는 i의 약수
+                    if (j != i / j) {
+                        cnt++; // j와 i / j가 다르면 둘 다 약수
+                    }
+                }
+            }
+            aaa[i-1] = cnt;
+        }
+        
+        // 그 숫자가 limit을 넘으면 power로 대체
+        // 총 합 구하기
+        for(int i = 0; i < aaa.length; i++) {
+            if(aaa[i] > limit) {
+                aaa[i] = power;
+            }
+            answer += aaa[i];
+        }
+        return answer;
+    }
+}
+
